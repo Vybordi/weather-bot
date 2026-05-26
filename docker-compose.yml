@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  geo-service:
+    build: ./geo_service
+    ports:
+      - "8001:8001"
+
+  formatter-service:
+    build: ./formatter_service
+    ports:
+      - "8002:8002"
