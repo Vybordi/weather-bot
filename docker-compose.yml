@@ -1,12 +1,20 @@
-version: '3.8'
-
 services:
   geo-service:
     build: ./geo_service
-    ports:
-      - "8001:8001"
+    image: geo_service:latest
+    deploy:
+      replicas: 1
 
   formatter-service:
     build: ./formatter_service
+    image: formatter_service:latest
+    deploy:
+      replicas: 1
+  
+  nginx:
+    build: ./nginx
+    image: nginx_proxy:latest
     ports:
-      - "8002:8002"
+      - "8080:80"
+    deploy:
+      replicas: 1
